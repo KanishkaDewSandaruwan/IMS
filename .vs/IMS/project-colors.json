@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "98ff92ec-c8f5-4ca8-8b51-1739ba7e4be2": {
+      "ProjectGuid": "98ff92ec-c8f5-4ca8-8b51-1739ba7e4be2",
+      "DisplayName": "IMS",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
