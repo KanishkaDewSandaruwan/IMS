@@ -47,17 +47,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.catTbTableAdapter = new IMS.inventrydbDataSet2TableAdapters.CatTbTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Ltotal = new System.Windows.Forms.Label();
+            this.total_Label = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.catTbBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventrydbDataSet2 = new IMS.inventrydbDataSet2();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.orderDate = new System.Windows.Forms.DateTimePicker();
             this.button6 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.pidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,15 +86,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.customerTbTableAdapter = new IMS.inventrydbDataSet5TableAdapters.CustomerTbTableAdapter();
             this.productTbTableAdapter2 = new IMS.inventrydbDataSet6TableAdapters.ProductTbTableAdapter();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_Label = new System.Windows.Forms.Label();
-            this.Ltotal = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.orderDate = new System.Windows.Forms.DateTimePicker();
             this.productTbBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.inventrydbDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTbBindingSource1)).BeginInit();
@@ -258,6 +257,29 @@
             this.panel1.Size = new System.Drawing.Size(1445, 100);
             this.panel1.TabIndex = 9;
             // 
+            // Ltotal
+            // 
+            this.Ltotal.AutoSize = true;
+            this.Ltotal.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ltotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ltotal.Location = new System.Drawing.Point(518, 20);
+            this.Ltotal.Name = "Ltotal";
+            this.Ltotal.Size = new System.Drawing.Size(0, 29);
+            this.Ltotal.TabIndex = 11;
+            this.Ltotal.Click += new System.EventHandler(this.Ltotal_Click);
+            // 
+            // total_Label
+            // 
+            this.total_Label.AutoSize = true;
+            this.total_Label.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.total_Label.Location = new System.Drawing.Point(277, 21);
+            this.total_Label.Name = "total_Label";
+            this.total_Label.Size = new System.Drawing.Size(235, 29);
+            this.total_Label.TabIndex = 10;
+            this.total_Label.Text = "Total Amount : Rs";
+            this.total_Label.Visible = false;
+            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.White;
@@ -309,7 +331,6 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Navy;
             this.panel4.Controls.Add(this.orderDate);
-            this.panel4.Controls.Add(this.button7);
             this.panel4.Controls.Add(this.button6);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.orderTotal);
@@ -327,6 +348,13 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(271, 689);
             this.panel4.TabIndex = 0;
+            // 
+            // orderDate
+            // 
+            this.orderDate.Location = new System.Drawing.Point(21, 394);
+            this.orderDate.Name = "orderDate";
+            this.orderDate.Size = new System.Drawing.Size(200, 20);
+            this.orderDate.TabIndex = 2;
             // 
             // button6
             // 
@@ -387,6 +415,32 @@
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.Size = new System.Drawing.Size(693, 399);
             this.dataGridView7.TabIndex = 1;
+            this.dataGridView7.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView7_ColumnHeaderMouseClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Product ID";
+            this.id.Name = "id";
+            // 
+            // p_name
+            // 
+            this.p_name.HeaderText = "Product Name";
+            this.p_name.Name = "p_name";
+            // 
+            // p_price
+            // 
+            this.p_price.HeaderText = "Product Price";
+            this.p_price.Name = "p_price";
+            // 
+            // p_qty
+            // 
+            this.p_qty.HeaderText = "Qty";
+            this.p_qty.Name = "p_qty";
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
             // 
             // dataGridView5
             // 
@@ -536,74 +590,6 @@
             // 
             this.productTbTableAdapter2.ClearBeforeFill = true;
             // 
-            // id
-            // 
-            this.id.HeaderText = "Product ID";
-            this.id.Name = "id";
-            // 
-            // p_name
-            // 
-            this.p_name.HeaderText = "Product Name";
-            this.p_name.Name = "p_name";
-            // 
-            // p_price
-            // 
-            this.p_price.HeaderText = "Product Price";
-            this.p_price.Name = "p_price";
-            // 
-            // p_qty
-            // 
-            this.p_qty.HeaderText = "Qty";
-            this.p_qty.Name = "p_qty";
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            // 
-            // total_Label
-            // 
-            this.total_Label.AutoSize = true;
-            this.total_Label.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.total_Label.Location = new System.Drawing.Point(277, 21);
-            this.total_Label.Name = "total_Label";
-            this.total_Label.Size = new System.Drawing.Size(235, 29);
-            this.total_Label.TabIndex = 10;
-            this.total_Label.Text = "Total Amount : Rs";
-            this.total_Label.Visible = false;
-            // 
-            // Ltotal
-            // 
-            this.Ltotal.AutoSize = true;
-            this.Ltotal.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ltotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ltotal.Location = new System.Drawing.Point(518, 20);
-            this.Ltotal.Name = "Ltotal";
-            this.Ltotal.Size = new System.Drawing.Size(0, 29);
-            this.Ltotal.TabIndex = 11;
-            this.Ltotal.Click += new System.EventHandler(this.Ltotal_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.Black;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(131, 56);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(104, 36);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "Delete from List";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // orderDate
-            // 
-            this.orderDate.Location = new System.Drawing.Point(21, 394);
-            this.orderDate.Name = "orderDate";
-            this.orderDate.Size = new System.Drawing.Size(200, 20);
-            this.orderDate.TabIndex = 2;
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -704,7 +690,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Label Ltotal;
         private System.Windows.Forms.Label total_Label;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DateTimePicker orderDate;
     }
 }

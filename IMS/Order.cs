@@ -185,47 +185,46 @@ namespace IMS
             populateCustomer();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OrderList orderList = new OrderList();  
+            orderList.Visible = true;
+            this.Visible = false;
+        }
+        String product_id = "1";
+
+        private void dataGridView7_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            product_id = dataGridView7.SelectedRows[0].Cells[0].Value.ToString();
+
+        }
         private void button7_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.dataGridView7.SelectedRows)
-            {
-                dataGridView7.Rows.RemoveAt(item.Index);
-
-                String productId = dataGridView7.SelectedRows[1].Cells[0].Value.ToString();
-                int productIds = int.Parse(productId);
-                int productqtys = 0;
+            SqlConnection con = new SqlConnection(@"Data Source=KANIYA\SQLEXPRESS;Initial Catalog=inventrydb;Integrated Security=True");
 
                 try
                 {
+                    int oldQty = 0;
 
                     con.Open();
                     String query = "SELECT product_qty FROM ProductTb WHERE pid = @pid";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add("@pid", productIds);
+                    cmd.Parameters.Add("@pid", product_id);
                     SqlDataReader sdr = cmd.ExecuteReader();
 
                     while (sdr.Read())
                     {
-                        productqtys = int.Parse(sdr.GetValue(3).ToString());   
+                        oldQty = int.Parse(sdr.GetValue(0).ToString());
                     }
-                    con.Close();
 
-                }
-                catch
-                {
 
-                }
+                    String queryupdate = "UPDATE ProductTb SET product_qty = @product_qty WHERE pid = @pid";
+                    SqlCommand command = new SqlCommand(queryupdate, con);
+                    command.Parameters.Add("@product_qty", "20");
+                    command.Parameters.Add("@pid", product_id);
 
-                try
-                {
+                    command.ExecuteNonQuery();
 
-                    con.Open();
-                    String query = "UPDATE ProductTb SET product_qty = @product_qty WHERE pid = @pid";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add("@product_qty", productqtys + 1);
-                    cmd.Parameters.Add("@pid", item.Index);
-
-                    cmd.ExecuteNonQuery();
 
                     con.Close();
                     populateProduct();
@@ -233,18 +232,10 @@ namespace IMS
 
 
                 }
-                catch
+                catch(Exception ex)
                 {
-
-                }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OrderList orderList = new OrderList();  
-            orderList.Visible = true;
-            this.Visible = false;
+                    Console.WriteLine(ex.Message);
+                } 
         }
 
         void populateProduct()

@@ -18,3 +18,7 @@ C:\Users\kanis\source\repos\IMS\IMS\obj\Debug\IMS.Category.resources
 C:\Users\kanis\source\repos\IMS\IMS\obj\Debug\IMS.Products.resources
 C:\Users\kanis\source\repos\IMS\IMS\obj\Debug\IMS.Order.resources
 C:\Users\kanis\source\repos\IMS\IMS\obj\Debug\IMS.OrderList.resources
+C:\Users\kanis\source\repos\IMS\IMS\bin\Debug\IMS.exe.manifest
+C:\Users\kanis\source\repos\IMS\IMS\bin\Debug\IMS.application
+C:\Users\kanis\source\repos\IMS\IMS\obj\Debug\IMS.exe.manifest
+C:\Users\kanis\source\repos\IMS\IMS\obj\Debug\IMS.application
